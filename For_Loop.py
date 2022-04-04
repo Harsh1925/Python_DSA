@@ -10,7 +10,6 @@ mylist2 = [letter for letter in mylist]  # for ni aagar and paachhar varo variab
 
 print(mylist2)
 
-#ok now i am chaning here 
 #------------------------------------------------------
 
 mylist = [num ** 2 for num in range(0, 10)]
