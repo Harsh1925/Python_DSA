@@ -41,6 +41,7 @@ class LinkedList:
         prev_node.next = new_node
 
     def delete_node(self, key):
+        global prev_node
         cur_node = self.head
 
         if cur_node and cur_node.data == key:
@@ -173,11 +174,13 @@ llist = LinkedList()
 llist.append("A")
 llist.append("B")
 llist.append("C")
-llist.append("B")
-llist.append("A")
+llist.append("E")
+llist.append("F")
 """
 print(llist.is_pelindrome())
-llist.rotate_list(5)
+"""
+llist.rotate_list(3)
+"""
 llist.remove_duplicate()
 llist.head = llist.rev_node_group(llist.head, 3)
 llist.swap_node("A", "B")
