@@ -41,3 +41,16 @@ for item in filter(check_even, my_num):
     print(item)
 """
 
+# -------------------------------------------
+
+sqr = lambda num: num ** 2
+
+print(sqr(5))
+
+print(list(map(lambda num: num ** 2, my_num)))
+
+print(list(filter(lambda x: x % 2 == 0, my_num)))
+
+print(list(map(lambda x: x[0], my_names)))
+
+print(list(map(lambda x: x[::-1], my_names)))
