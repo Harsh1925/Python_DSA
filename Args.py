@@ -32,7 +32,7 @@ def new_func(**kwargs):
         print("My choice of fruits is here {}".format(kwargs['fruit']))
 
     else:
-        print("I didn't get my fruit")
+        print("I didn't get my fruit but it is {}".format(kwargs['veggie']))
 
 
 new_func(fruit='Apple')
