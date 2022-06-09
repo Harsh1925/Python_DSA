@@ -21,7 +21,7 @@ def win_check(row1, row2, row3, Mark):
             (row1[1] == row2[1] == row3[1] == Mark) or
             (row1[2] == row2[2] == row3[2] == Mark) or
             (row1[0] == row2[1] == row3[2] == Mark) or
-            (row1[2] == row1[1] == row1[0] == Mark)):
+            (row1[2] == row2[1] == row3[0] == Mark)):
 
         return False
 
@@ -30,9 +30,9 @@ def win_check(row1, row2, row3, Mark):
 
 
 def draw_game(row1, row2, row3):
-    if ((row1[0] == row1[1] == row1[2] == " ") and
-            (row2[0] == row2[1] == row2[2] == " ") and
-            (row3[0] == row3[1] == row3[2] == " ")):
+    if ((row1[0] != " " and row1[1] != " " and row1[2] != " ") and
+            (row2[0] != " " and row2[1] != " " and row2[2] != " ") and
+            (row3[0] != " " and row3[1] != " " and row3[2] != " ")):
 
         return True
 
@@ -57,8 +57,9 @@ while game_on:
 
     while choosing:
 
-        sign = int(input("Player " + str(Player_num) + " Choose your Mark Enter 1 for 'O' or 2 for 'X'\n"))
-        if sign == 1 or sign == 2:
+        sign = input("Player " + str(Player_num) + " Choose your Mark Enter 1 for 'O' or 2 for 'X'\n")
+        if sign == "1" or sign == "2":
+            sign = int(sign)
             choosing = False
         else:
             print("You have entered wrong number Try again")
@@ -71,7 +72,7 @@ while game_on:
         Mark[1] = "O"
 
     while cur_input:
-        choice = int(input("Player " + str(Player_num) + " Enter number of your choice(1-9)\n"))
+        choice = int(input("Player " + str(Player_num) + " Enter number of your choice(0-8)\n"))
         if choice not in range(0, 9):
             print("You have entered wrong input")
         else:
@@ -91,9 +92,10 @@ while game_on:
     game_on = win_check(row1, row2, row3, Mark[Player_num - 1])
 
     if game_on is False:
-        print("Player " + str(Player_num) + " has Won the game")
+        print("Player " + str(Player_num) + " has Won the game!!!!!!!!!!!!!")
+        print()
 
-    if draw_game(row1, row2, row3):
+    if draw_game(row1, row2, row3) and game_on:
         print("There has been a tie")
         exit()
 
